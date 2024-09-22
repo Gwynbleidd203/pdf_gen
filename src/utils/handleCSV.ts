@@ -1,6 +1,6 @@
 import { parse } from "csv-parse";
 import fs from "fs";
-import { CONFIG } from "../../config";
+import { CONFIG } from "../config";
 import { StudentRequest } from "../types/StudentRequest";
 
 function readCSV(): Promise<string[][]> {

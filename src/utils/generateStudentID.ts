@@ -1,5 +1,5 @@
 import { createHmac} from "node:crypto";
-import { CONFIG } from "../../config";
+import { CONFIG } from "../config";
 
 function generateStudentID(reqDate: string) {
 

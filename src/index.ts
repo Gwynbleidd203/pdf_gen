@@ -1,11 +1,11 @@
-const PDFDocument = require('pdfkit');
-const fs = require('fs');
-const path = require('path');
+import PDFDocument from "pdfkit"
+import fs from "fs"
+import path from "path"
+import { CONFIG } from "./config"; // Ensure CONFIG.img contains the path to your image
 
-const CONFIG = require('./config'); // Ensure CONFIG.img contains the path to your image
-
-const getCSVData = require('./src/utils/handleCSV');
-const cleanData = require('./src/utils/cleanData');
+import { getCSVData } from "./utils/handleCSV";
+import { cleanData } from "./utils/cleanData";
+import { StudentRequest } from "./types/StudentRequest";
 
 getCSVData()
     .then(data => {
@@ -16,16 +16,8 @@ getCSVData()
         console.error('Error:', error);
     });
 
-const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' };
 
-/**
- * This function generates a PDF document with specific content related to a student's request.
- * The document includes an image, text, and a date.
- * @param {string} outputPath
- * @param {StudentRequest} data
- * @returns {void}
- */
-function generateDocument(outputPath, data) {
+function generateDocument(outputPath: string, data: StudentRequest) {
     const doc = new PDFDocument();
 
     // Ensure the dist directory exists
@@ -65,28 +57,25 @@ function generateDocument(outputPath, data) {
         .fontSize(14)
         .text(`O aluno(a) ${data.name}, solicitou a(o) ${data.req}, referente ao curso ${data.course} do IFSULDEMINAS - Campus Muzambinho na data de ${data.date}.`, { align: 'justify' })
         .moveDown(4)
-        .text(`Muzambinho - MG, ${new Date().toLocaleDateString('pt-BR', dateOptions)}.`, { align: "right" })
+        .text(`Muzambinho - MG, ${new Date().toLocaleDateString('pt-BR', CONFIG.dateOptions)}.`, { align: "right" })
         // End the document
         .end();
 }
 
-/**
- * Generates PDFs for each student request.
- * @param {StudentRequest[]} objectList
- */
-function pipelineGeneration(objectList) {
+
+function pipelineGeneration(objectList: StudentRequest[]) {
     objectList.forEach(item => {
         // Format date for filename
         //const formattedDate = new Date(item.date).toISOString().split('T')[0]; // Example format: yyyy-mm-dd
-        let outputName = `${item.name.toLowerCase().replace(/ /g, "_")}_${item.req.toLowerCase().replace(/ /g, "_")}_${new Date().toLocaleDateString('pt-BR', dateOptions).replace(/ /g, "_")}.pdf`;
+        let outputName = `${item.name.toLowerCase().replace(/ /g, "_")}_${item.req.toLowerCase().replace(/ /g, "_")}_${new Date().toLocaleDateString('pt-BR', CONFIG.dateOptions).replace(/ /g, "_")}.pdf`;
 
         if (outputName.length > 128) {
 
-            outputName = `${item.name.toLowerCase().replace(/ /g, "_")}_${new Date().toLocaleDateString('pt-BR', dateOptions).replace(/ /g, "_")}.pdf`
+            outputName = `${item.name.toLowerCase().replace(/ /g, "_")}_${new Date().toLocaleDateString('pt-BR', CONFIG.dateOptions).replace(/ /g, "_")}.pdf`
         }
 
         // Ensure to provide the full path for the output file
-        const outputPath = path.join('dist', outputName);
+        const outputPath = path.join(CONFIG.outputDir, outputName);
 
         generateDocument(outputPath, item);
     });
