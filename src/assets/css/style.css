@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+html {
+
+    font-size: 62.5%;
+
+    color-scheme: dark light;
+}
+
+*,
+*::before,
+*::after {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: "system-ui";
+    font-size: 1.6rem;
+    
+}
+
+img,
+video {
+
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.container {
+
+    display: grid;
+    place-content: center;
+    min-height: 100dvh;
+}
+
+.controller {
+
+    width: 80%;
+    border: 1px red solid
+}

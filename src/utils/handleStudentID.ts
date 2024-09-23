@@ -40,3 +40,5 @@ console.log("Key (nonce):", key);
 // Decrypting the data
 const decrypted = decryptStudentID(encrypted, iv, authTag, key);
 console.log("Decrypted:", decrypted);
+
+export { generateStudentEncryption, generateStudentID, decryptStudentID }
