@@ -11,48 +11,60 @@
 <body>
     <div class="container">
 
-        <header>
+        <header class="header">
             <h1>Gerador de Documentos</h1>
         </header>
 
         <main>
     
             <section class="controller">
-                <div>
-                    <ul>
-                        <li>
-                            Gerar
+                <div class="controller__content">
+                    <ul class="controller__list">
+                        <li class="controller__item">
+                            <button>
+                                Gerar
+                            </button>
                         </li>
     
-                        <li>
-                            Validar
+                        <li class="controller__item">
+                            <button>
+                                Validar
+                            </button>
                         </li>
                     </ul>
                 </div>
             </section>
     
-            <section>
-                <div>
+            <section class="controller-functionality">
+                <div class="generate-document" data-showing="false">
                     <h2>Gerar Documentos</h2>
     
                     <form action="">
-                        <label for="">
-                            <input type="file" name="" id="" >
+                        <label for="file__input-csv" class="file-input__label">
+                            <input class="file-input__input" type="file" accept=".csv" id="file__input-csv" >
+                            <span>
+                                Drag or Drop your file here
+                            </span>
                         </label>
                     </form>
                 </div>
     
-                <div>
+                <div class="validate-document" data-showing="true">
                     <h2>Validar Documentos</h2>
     
                     <form action="">
-                        <input type="file" name="" id="">
+                        <label for="file__input-pdf" class="file-input__label">
+                            <input class="file-input__input" type="file" accept=".pdf" id="file__input-pdf" >
+                            <span>
+                                Drag or Drop your PDF file here
+                            </span>
+                        </label>
                     </form>
                 </div>
             </section>
         </main>
 
-        <footer>
+        <footer class="footer">
             Made by
         </footer>
     </div>
