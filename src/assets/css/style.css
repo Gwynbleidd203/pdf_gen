@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+html {
+
+    font-size: 62.5%;
+
+    color-scheme: dark light;
+}
+
+:where(:root) {
+
+    --round-sm: .8rem;
+    --round-md: 2rem;
+
+    --spacing-sm: .4rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 8rem;
+}
+
+*,
+*::before,
+*::after {
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: "system-ui";
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+img,
+video {
+
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.container {
+
+    display: grid;
+    place-content: center;
+    justify-items: space-between;
+    min-height: 100dvh;
+}
+
+/* CONTROLLER */
+
+.controller__content {
+    display: grid;
+
+    width: 100%;
+    border-radius: var(--round-sm);
+
+    margin: 0 auto;
+
+    padding: var(--spacing-sm);
+}
+
+.controller,
+.controller-functionality {
+
+    width: 100%;
+    min-height: 8dvh;
+}
+
+.controller__list {
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: var(--spacing-sm)
+}
+
+.controller__item,
+.controller__item--selected {
+
+    width: 50%;
+    flex: 1;
+    text-align: center;
+    
+    cursor: pointer;
+    border-radius: calc(var(--round-sm) - var(--spacing-sm));
+
+    & > button {
+
+        width: 100%;
+        padding-inline: var(--spacing-sm);
+        padding-block: .8rem;
+        cursor: pointer;
+    }
+}
+
+
+/*FILE INPUT*/
+
+.file-input__label {
+    display: grid;
+    width: 100%;
+    place-content: center;
+    cursor: pointer;
+    border: red dotted .1rem;
+    border-radius: var(--round-sm);
+    padding: var(--spacing-lg);
+}
+
+.file-input__input {
+
+    display: none;
+    opacity: 0;
+}
+
+[data-showing="false"] {
+
+    display: none;
+}
+
+.footer {
+
+    width: 100%;
+    align-self: end;
+}

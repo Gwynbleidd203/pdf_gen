@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Otávio A. Barbiéri">
+    <title>CRA - Gerador de Documentos</title>
+
+    <link rel="stylesheet" href="./src/assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1>Gerador de Documentos</h1>
+        </header>
+
+        <main>
+    
+            <section class="controller">
+                <div class="controller__content">
+                    <ul class="controller__list">
+                        <li class="controller__item">
+                            <button>
+                                Gerar
+                            </button>
+                        </li>
+    
+                        <li class="controller__item">
+                            <button>
+                                Validar
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+    
+            <section class="controller-functionality">
+                <div class="generate-document" data-showing="false">
+                    <h2>Gerar Documentos</h2>
+    
+                    <form action="">
+                        <label for="file__input-csv" class="file-input__label">
+                            <input class="file-input__input" type="file" accept=".csv" id="file__input-csv" >
+                            <span>
+                                Drag or Drop your file here
+                            </span>
+                        </label>
+                    </form>
+                </div>
+    
+                <div class="validate-document" data-showing="true">
+                    <h2>Validar Documentos</h2>
+    
+                    <form action="">
+                        <label for="file__input-pdf" class="file-input__label">
+                            <input class="file-input__input" type="file" accept=".pdf" id="file__input-pdf" >
+                            <span>
+                                Drag or Drop your PDF file here
+                            </span>
+                        </label>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            Made by
+        </footer>
+    </div>
+</body>
+</html>
