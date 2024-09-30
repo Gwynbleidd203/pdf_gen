@@ -159,6 +159,11 @@ ol {
     display: none;
 }
 
+[data-showing="true"] {
+
+    display: grid;
+}
+
 .footer {
 
     width: 100%;
