@@ -70,6 +70,7 @@ ol {
 
 .controller__content {
     display: grid;
+    align-items: center;
 
     width: 100%;
     border-radius: var(--round-sm);
@@ -89,6 +90,7 @@ ol {
 .controller__list {
 
     display: flex;
+    align-items: center;
     width: 100%;
     justify-content: space-between;
     gap: var(--spacing-sm)
@@ -100,22 +102,38 @@ ol {
     width: 50%;
     flex: 1;
     text-align: center;
-    
+
     cursor: pointer;
     border-radius: calc(var(--round-sm) - var(--spacing-sm));
+}
 
-    & > button {
+.btn {
 
-        width: 100%;
-        padding-inline: var(--spacing-sm);
-        padding-block: .8rem;
-        cursor: pointer;
+    width: 100%;
+    font-size: 1.2em;
+    padding-inline: var(--spacing-sm);
+    padding-block: 1.6rem;
+    padding-inline: .8rem;
+    border-radius: var(--round-sm);
+    cursor: pointer;
+    border: none;
+    transition: opacity .4s ease-in;
 
-        &:focus {
+    &:focus {
 
-            border: .1rem red solid;
-        }
+        border: .1rem var(--accent) solid;
     }
+
+    &:hover {
+
+        opacity: .6
+    }
+}
+
+.btn--active {
+
+    background-color: var(--primary);
+    padding-block: 1.8rem;
 }
 
 
@@ -157,6 +175,7 @@ ol {
 [data-showing="false"] {
 
     display: none;
+    visibility: hidden
 }
 
 [data-showing="true"] {

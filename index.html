@@ -21,13 +21,13 @@
                 <div class="controller__content">
                     <ul class="controller__list">
                         <li class="controller__item">
-                            <button id="generate-btn">
+                            <button id="generate-btn" class="btn btn--active">
                                 Gerar
                             </button>
                         </li>
     
                         <li class="controller__item">
-                            <button id="validate-btn">
+                            <button id="validate-btn" class="btn">
                                 Validar
                             </button>
                         </li>
@@ -39,11 +39,12 @@
                 <div id="generate-section" class="generate-document" data-showing="true">
                     <h2>Gerar Documentos</h2>
     
-                    <form action="">
+                    <form id="generate-form">
                         <label for="file__input-csv" class="file-input__label">
                             <input class="file-input__input" type="file" accept=".csv" id="file__input-csv" >
+                            <span class="file__input__icon"></span>
                             <span>
-                                Drag or Drop your file here
+                                Drag & Drop your <strong>CSV</strong> file here
                             </span>
                         </label>
                     </form>
@@ -52,12 +53,12 @@
                 <div id="validate-section" class="validate-document" data-showing="false">
                     <h2>Validar Documentos</h2>
     
-                    <form action="">
+                    <form id="validate-form">
                         <label for="file__input-pdf" class="file-input__label">
                             <input class="file-input__input" type="file" accept=".pdf" id="file__input-pdf" >
                             <span class="file__input__icon"></span>
                             <span>
-                                Drag & Drop your PDF file here
+                                Drag & Drop your <strong>PDF</strong> file here
                             </span>
                         </label>
                     </form>
@@ -66,7 +67,7 @@
         </main>
 
         <footer class="footer">
-            Made by
+            Made by <strong>Otávio A. Barbiéri</strong>
         </footer>
     </div>
 
