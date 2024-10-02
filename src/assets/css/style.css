@@ -56,11 +56,18 @@ ol {
     list-style: none;
 }
 
+form:invalid + button[type="submit"] {
+
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .5
+}
+
 .container {
 
     display: grid;
     place-content: center;
-    justify-items: space-between;
+    justify-items: center;
     min-height: 100dvh;
     background-color: var(--background);
     color: var(--text);
@@ -128,6 +135,12 @@ ol {
 
         opacity: .6
     }
+}
+
+.generate-document,
+.validate-document {
+
+    gap: 4rem;
 }
 
 .btn--active {

@@ -1,11 +1,13 @@
-import PDFDocument from "pdfkit"
 import fs from "fs"
 import path from "path"
+import PDFDocument from "pdfkit"
+
+import { StudentRequest } from "./types/StudentRequest";
+
 import { CONFIG } from "./config"; // Ensure CONFIG.img contains the path to your image
 
-import { getCSVData } from "./utils/handleCSV";
 import { cleanData } from "./utils/cleanData";
-import { StudentRequest } from "./types/StudentRequest";
+import { getCSVData } from "./utils/handleCSV";
 
 getCSVData()
     .then(data => {
