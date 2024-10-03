@@ -16,8 +16,8 @@ const controlObj = {
 
             if (!this.isVisible) {
 
-                this.btn.classList.add("btn--active")
-                controlObj.generate.btn.classList.remove("btn--active")
+                this.btn.classList.add("btn--active");
+                controlObj.generate.btn.classList.remove("btn--active");
 
                 this.section.dataset.showing = String(!this.isVisible);
                 
@@ -60,7 +60,12 @@ const controlObj = {
 
     submissionController: function() {
 
+        
 
+        // Add more event listeners for other forms and inputs here...
+
+        // Example:
+        // document.querySelector('#other-form').addEventListener('submit', (e) => handleSubmit(e, document.querySelector('#other-input')));
     },
 
     init: function() {
@@ -70,6 +75,11 @@ const controlObj = {
         if (this.validate.btn && this.generate.btn) {
             this.validate.btn.addEventListener('click', this.validate.handleClick.bind(this.validate));
             this.generate.btn.addEventListener('click', this.generate.handleClick.bind(this.generate));
+        }
+
+        if (this.validate.form && this.generate.form) {
+            this.validate.form.addEventListener('submit', (e) => handleSubmit(e, this.validate.input));
+            this.generate.form.addEventListener('submit', (e) => handleSubmit(e, this.generate.input));
         }
     }
 };

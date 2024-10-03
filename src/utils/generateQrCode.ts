@@ -1,21 +1,22 @@
 import QRCode from "qrcode";
+
 import { StudentEncryption } from "../types/StudentEncrypton";
 
-import { generateStudentEncryption, generateStudentID } from "./handleStudentID"
+import { generateStudentEncryption, generateStudentID } from "./handleStudentID";
 
 async function generateQRCode(data: StudentEncryption) {
 
     try {
 
-        const stringfiedText = JSON.stringify(data)
+        const stringfiedText = JSON.stringify(data);
 
-        const url = QRCode.toDataURL(stringfiedText)
+        const url = QRCode.toDataURL(stringfiedText);
 
-        return url
+        return url;
 
     } catch(err) {
 
-        console.error(err)
+        console.error(err);
     }
 }
 
